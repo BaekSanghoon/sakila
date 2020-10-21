@@ -27,6 +27,7 @@ public class StatsService {
 	//오늘 날짜 방문자가 있는지 확인하고 없으면 null값을 반환함, 총방문자수를 map을 사용하여 리턴
 	public Map<String, Object> getStats() {
 		//map : Key와 Value라는 것을 한 쌍으로 갖는 자료형 대응관계를 쉽게표현가능
+		//오늘카운터값, 토탈카운터값 리턴, int 값을 integer로 바꿔서 박싱한다
 		Map<String, Object> map = null;
 		statsDao = new StatsDao();
 		Stats stats = new Stats();
