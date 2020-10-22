@@ -32,7 +32,7 @@
 	<form method="post" action="${pageContext.request.contextPath}/LoginServlet" id="loginForm" >
 	<h1>로그인 폼</h1>
 		<div>
-			<input type="text" placeholder="ID" name="id" id="id">
+			<input type="text" placeholder="Email" name="id" id="id">
 		</div>
 		<div>
 			<input type="password" placeholder="PW" name="pw" id="pw">
