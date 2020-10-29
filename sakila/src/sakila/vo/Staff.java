@@ -14,6 +14,8 @@ public class Staff {
 	private String userName;
 	private String password;
 	private String lastUpdate;
+	private String address;
+	private String phone;
 	
 	public int getStaffId() {
 		return staffId;
@@ -82,12 +84,27 @@ public class Staff {
 		this.lastUpdate = lastUpdate;
 	
 	}
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	@Override
 	public String toString() {
 		return "Staff [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + ", addressId="
 				+ addressId + ", picture=" + picture + ", email=" + email + ", storeId=" + storeId + ", active="
-				+ active + ", userName=" + userName + ", password=" + password + ", lastUpdate=" + lastUpdate + "]";
+				+ active + ", userName=" + userName + ", password=" + password + ", lastUpdate=" + lastUpdate
+				+ ", address=" + address + ", phone=" + phone + "]";
 	}
+
 
 	
 	

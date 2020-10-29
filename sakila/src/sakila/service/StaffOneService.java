@@ -1,16 +1,16 @@
 package sakila.service;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import sakila.dao.StaffDao;
 import sakila.util.DBUtil;
 import sakila.vo.Staff;
 
-public class StaffService {
+public class StaffOneService {
 	private StaffDao staffDao;
-	
-	//로그인
-	public Staff getStaffByKey(Staff staff) {
+	//스태프 자세히 보기
+	public Staff staffOne(Staff staff) {
 		Staff returnStaff = null;		
 		staffDao = new StaffDao();
 		Connection conn =  null;
@@ -19,17 +19,16 @@ public class StaffService {
 			DBUtil dbUtil = new DBUtil();
 			conn = DBUtil.getConnection(); 
 			conn.setAutoCommit(false);
-
-			// 인증 확인 -> 결과 저장
-			returnStaff = staffDao.selectStaffByKey(conn, staff);
+			
+			returnStaff = staffDao.selectStaffOne(conn, staff);
 			conn.commit();
 			
-		} catch(Exception e) { //예외발생시 실행
+		} catch(Exception e) { //예외발생
 			try {				
 				conn.rollback();	
 				
 			} catch (SQLException e1) {				
-				e1.printStackTrace(); //메소드가 내부적으로 예외결과를 호출
+				e1.printStackTrace(); 
 			}
 			e.printStackTrace();
 			
@@ -44,5 +43,4 @@ public class StaffService {
 		
 		return returnStaff;
 	}
-	
 }

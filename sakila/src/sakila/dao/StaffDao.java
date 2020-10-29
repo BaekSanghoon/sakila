@@ -27,10 +27,10 @@ public class StaffDao {
 		System.out.println("debug: instance 변수 : returnStaff="+returnStaff);
 		return returnStaff;
 	}
+	
 	//관리자 정보 자세히 보기
 	public Staff selectStaffOne(Connection conn, Staff staff) throws Exception {
-		Staff returnStaff = null;
-		Address address = null;
+		Staff returnStaffOne = null;
 		
 		PreparedStatement stmt = conn.prepareStatement(StaffQuery.SELECT_STAFF_BY_LIST);
 		stmt.setInt(1, staff.getStaffId());
@@ -38,16 +38,15 @@ public class StaffDao {
 		
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
-			returnStaff = new Staff();
-			address = new Address();
-			returnStaff.setUserName(rs.getString("username"));
-			returnStaff.setFirstName(rs.getString("firstName"));
-			returnStaff.setLastName(rs.getString("lastName"));
-			returnStaff.setEmail(rs.getString("email"));
-			address.setPhone(rs.getString("phone"));
-			address.setAddress(rs.getString("address"));
+			returnStaffOne = new Staff();
+			returnStaffOne.setUserName(rs.getString("username"));
+			returnStaffOne.setFirstName(rs.getString("firstName"));
+			returnStaffOne.setLastName(rs.getString("lastName"));
+			returnStaffOne.setEmail(rs.getString("email"));
+			returnStaffOne.setPhone(rs.getString("phone"));
+			returnStaffOne.setAddress(rs.getString("address"));
 					
 		}
-		return returnStaff,address;
+		return returnStaffOne;
 	}
 }
